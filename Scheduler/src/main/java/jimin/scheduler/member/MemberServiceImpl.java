@@ -16,7 +16,12 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
+    public Member login(String id, String pw) {
+        return memberRepository.findByIdAndPw(id, pw).orElse(null);
+    }
+
+    @Override
     public Member findMember(Long suid) {
-        return memberRepository.findBySuid(suid);
+        return memberRepository.findBySuid(suid).orElse(null);
     }
 }
