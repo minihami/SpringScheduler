@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>스케줄 등록</title>
+</head>
+<body>
+<h1>스케줄 등록</h1>
+
+<p th:if="${error}" th:text="${error}" style="color:red;"></p>
+
+<form th:action="@{/schedule/new}" th:object="${schedule}" method="post">
+
+    <label>시작 시간:</label>
+    <input type="datetime-local" th:field="*{startTime}"><br><br>
+
+    <label>종료 시간:</label>
+    <input type="datetime-local" th:field="*{endTime}"><br><br>
+
+    <label>상세 정보:</label>
+    <textarea th:field="*{detail}"></textarea><br><br>
+
+    <button type="submit">등록하기</button>
+
+    <form th:action="@{/logout}" method="post" style="display:inline;">
+        <button type="submit">로그아웃</button>
+    </form>
+
+</form>
+</body>
+</html>

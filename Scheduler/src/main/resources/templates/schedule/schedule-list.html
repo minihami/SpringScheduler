@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>내 스케줄</title>
+</head>
+<body>
+<h1>내 스케줄 목록</h1>
+
+<a th:href="@{/schedule/new}">새 스케줄 등록</a>
+
+<table border="1">
+    <tr>
+        <th>시작</th><th>종료</th><th>상세</th><th></th>
+    </tr>
+    <tr th:each="schedule : ${schedules}">
+        <td th:text="${schedule.startTime}"></td>
+        <td th:text="${schedule.endTime}"></td>
+        <td th:text="${schedule.detail}"></td>
+        <td>
+            <a th:href="@{/schedule/{id}(id=${schedule.scheduleId})}">상세</a>
+        </td>
+    </tr>
+</table>
+
+<form th:action="@{/logout}" method="post" style="display:inline;">
+    <button type="submit">로그아웃</button>
+</form>
+</body>
+</html>

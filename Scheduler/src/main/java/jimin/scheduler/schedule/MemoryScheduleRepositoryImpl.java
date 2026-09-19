@@ -1,5 +1,7 @@
 package jimin.scheduler.schedule;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -7,6 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
+@Repository
 public class MemoryScheduleRepositoryImpl implements ScheduleRepository{
 
     public static final Map<Long, Schedule> store = new ConcurrentHashMap<>();

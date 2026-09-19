@@ -49,6 +49,14 @@ public class MemberController {
         }
 
         session.setAttribute("loginMember", findMember);
-        return "redirect:/home";
+        return "redirect:/schedule/list";
+    }
+
+    @PostMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session != null)
+            session.invalidate();
+        return "redirect:/login";
     }
 }
